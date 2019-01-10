@@ -33,4 +33,20 @@ public class PraticienMotif {
 		this.motif = motif;
 	}
 
+	public Praticien getPraticien() {
+		return praticien;
+	}
+
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
+	}
+
+	public Motif getMotif() {
+		return motif;
+	}
+
+	public void setMotif(Motif motif) {
+		this.motif = motif;
+	}
+
 }
