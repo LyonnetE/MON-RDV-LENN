@@ -2,6 +2,7 @@ package monRdv.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,7 +12,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Creneaux {
 
+	@Column(name = "date")
 	private Date date;
+	@Column(name = "tempsCreneau")
 	private int tempsCreneau;
 
 	@Id
