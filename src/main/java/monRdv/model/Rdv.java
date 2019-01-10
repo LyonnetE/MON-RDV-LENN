@@ -1,5 +1,9 @@
 package monRdv.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,15 +20,24 @@ public class Rdv {
 	@Id
 	@GeneratedValue
 	private Long id;
-//	@OneToOne
-	private String motif;
-//	@OneToMany
-	private String creneaux;
+	
+	@Column(name="motif")
+	@OneToOne(mappedBy="rdv")
+	private Motif motif;
+	
+	@Column(name="creneaux")
+	@OneToMany(mappedBy="rdv")
+	private List<Creneaux> creneaux=new ArrayList<>();
+	
+	@Column(name="patient")
 	@ManyToOne
 	@JoinColumn(name="patient_id")
 	private Utilisateur patient;
-//	@ManyToOne
-	private String praticien;
+	
+	@Column(name="praticien")
+	@ManyToOne
+	@JoinColumn(name="praticien_id")
+	private Praticien praticien;
 	
 	public Rdv() {
 		super();
@@ -38,19 +51,19 @@ public class Rdv {
 		this.id = id;
 	}
 
-	public String getMotif() {
+	public Motif getMotif() {
 		return motif;
 	}
 
-	public void setMotif(String motif) {
+	public void setMotif(Motif motif) {
 		this.motif = motif;
 	}
 
-	public String getCreneaux() {
+	public List<Creneaux> getCreneaux() {
 		return creneaux;
 	}
 
-	public void setCreneaux(String creneaux) {
+	public void setCreneaux(List<Creneaux> creneaux) {
 		this.creneaux = creneaux;
 	}
 
@@ -62,11 +75,11 @@ public class Rdv {
 		this.patient = patient;
 	}
 
-	public String getPraticien() {
+	public Praticien getPraticien() {
 		return praticien;
 	}
 
-	public void setPraticien(String praticien) {
+	public void setPraticien(Praticien praticien) {
 		this.praticien = praticien;
 	}	
 

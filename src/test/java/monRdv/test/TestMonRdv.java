@@ -56,12 +56,12 @@ public class TestMonRdv {
 			em.persist(utilisateur3);
 			
 			rdv.setMotif("Fond d'oeil");
-			rdv.setCreneaux("2h");
+//			rdv.setCreneaux("2h");
 			rdv.setPraticien("Quoi de neuf DR.");
 			rdv.setPatient(utilisateur2);
 			
 			rdv2.setMotif("Mamographie");
-			rdv2.setCreneaux("30min");
+//			rdv2.setCreneaux("30min");
 			rdv2.setPraticien("DR.Nene");
 			rdv2.setPatient(utilisateur2);
 			
