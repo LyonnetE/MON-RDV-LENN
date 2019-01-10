@@ -7,3 +7,5 @@ src/main/java/monRdv/model/Creneaux\.java
 src/main/java/monRdv/model/Patient\.java
 
 src/main/java/monRdv/model/Utilisateur\.java
+
+src/test/java/monRdv/test/Test\.java

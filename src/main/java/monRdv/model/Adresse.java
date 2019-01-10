@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -35,6 +36,9 @@ public class Adresse {
 	@OneToMany(mappedBy = "adresse")
 	private List<PraticienAdresse> praticiens = new ArrayList<>();
 
+	@OneToOne(mappedBy="adresse")
+	private Creneaux creneau;
+
 	public Adresse() {
 		super();
 	}
@@ -47,6 +51,14 @@ public class Adresse {
 		this.ville = ville;
 		this.pays = pays;
 
+	}
+
+	public Creneaux getCreneau() {
+		return creneau;
+	}
+
+	public void setCreneau(Creneaux creneau) {
+		this.creneau = creneau;
 	}
 
 	public List<PraticienAdresse> getPraticiens() {

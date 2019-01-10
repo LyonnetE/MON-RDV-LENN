@@ -4,16 +4,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
+import monRdv.model.Creneaux;
+import monRdv.model.Motif;
+import monRdv.model.Praticien;
 import monRdv.model.Rdv;
+import monRdv.model.Specialite;
 import monRdv.model.TypeUtilisateur;
 import monRdv.model.Utilisateur;
 
-public class TestMonRdv {
+
+public class TestMonRdvLisa {
 
 	public static void main(String[] args) {
-
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("monRdv");
 
 		EntityManager em = null;
@@ -25,18 +29,30 @@ public class TestMonRdv {
 		
 		Rdv rdv=null;
 		Rdv rdv2=null;
+		
+		Praticien praticien =  null;
+		Praticien praticien2 =  null;
+		
+		Motif motif =  null;
+		Motif motif2 =  null;
+		
+		Creneaux creneau = null;
 
 		try {
 			em = emf.createEntityManager();
 			tx = em.getTransaction();
 
 			tx.begin();
+			
 			utilisateur=new Utilisateur();
 			utilisateur2=new Utilisateur();
 			utilisateur3=new Utilisateur();
 			
 			rdv=new Rdv();
 			rdv2=new Rdv();
+			
+			praticien =new Praticien();
+			praticien2 =new Praticien();
 			
 			
 			utilisateur.setTypeUtilisateur(TypeUtilisateur.Administrateur);
@@ -55,18 +71,43 @@ public class TestMonRdv {
 			em.persist(utilisateur2);
 			em.persist(utilisateur3);
 			
-			rdv.setMotif("Fond d'oeil");
-//			rdv.setCreneaux("2h");
-			rdv.setPraticien("Quoi de neuf DR.");
+			praticien.setNom("Ni");
+			praticien.setPrenom("bar");
+			
+			praticien2.setNom("Ni");
+			praticien2.setPrenom("bar");
+			
+			em.persist(praticien);
+			em.persist(praticien2);
+			
+			motif= new Motif();
+			motif2= new Motif();
+			
+			motif.setMotif("fond d'oeil");
+			motif2.setMotif("coloscopie");
+			
+			em.persist(motif);
+			em.persist(motif2);
+			
+			creneau =new Creneaux();
+			
+			creneau.setTempsCreneau(1);
+			
+			em.persist(creneau);
+			
+			rdv.setMotif(motif);
+			rdv.addCreneaux(creneau);
+			rdv.setPraticien(praticien);
 			rdv.setPatient(utilisateur2);
 			
-			rdv2.setMotif("Mamographie");
-//			rdv2.setCreneaux("30min");
-			rdv2.setPraticien("DR.Nene");
+			rdv2.setMotif(motif2);
+			rdv2.addCreneaux(creneau);
+			rdv2.setPraticien(praticien2);
 			rdv2.setPatient(utilisateur2);
 			
 			em.persist(rdv);
 			em.persist(rdv2);
+
 
 			tx.commit();
 		} catch (Exception e) {
@@ -79,8 +120,8 @@ public class TestMonRdv {
 				em.close();
 			}
 		}
-
 		emf.close();
+
 	}
 
 }
