@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,6 +31,11 @@ public class Patient {
 	@OneToOne
 	@JoinColumn(name = "adresse_id")
 	private Adresse adresse;
+
+	@ManyToOne
+	@JoinColumn(name="utilisateur_patient")
+	private Utilisateur utilisateur;
+
 
 	public Patient() {
 		super();
@@ -100,4 +106,15 @@ public class Patient {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
+
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+	
+
 }
