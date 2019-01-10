@@ -9,7 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-//import javax.persistence.OneToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -28,11 +28,11 @@ public class Utilisateur {
 	@Enumerated(EnumType.STRING)
 	private TypeUtilisateur typeUtilisateur;
 	
-//	@OneToOne
-//	private Patient patient;
-//	
-//	@OneToOne
-//	private Praticien praticien;
+	@OneToOne
+	private Patient patient;
+	
+	@OneToOne
+	private Praticien praticien;
 	@OneToMany (mappedBy="patient")
 	private List<Rdv> rdv;
 	
@@ -72,22 +72,21 @@ public class Utilisateur {
 		this.typeUtilisateur = typeUtilisateur;
 	}
 
+	public Patient getPatient() {
+		return patient;
+	}
 
-//	public Patient getPatient() {
-//		return patient;
-//	}
-//
-//	public void setPatient(Patient patient) {
-//		this.patient = patient;
-//	}
-//
-//	public Praticien getPraticien() {
-//		return praticien;
-//	}
-//
-//	public void setPraticien(Praticien praticien) {
-//		this.praticien = praticien;
-//	}
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public Praticien getPraticien() {
+		return praticien;
+	}
+
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
+	}
 	
 	public List<Rdv> getRdv() {
 		return rdv;

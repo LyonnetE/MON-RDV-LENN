@@ -1,44 +1,55 @@
-//package monRdv.model;
-//
-//import java.util.Date;
-//
-//
-//public class Creneaux {
-//	
-//private Date date;
-//private int tempsCreneau;
-//private Adresse adresse; 
-//
-//private RDV rdv; 
-//
-//
-//public Creneaux() {
-//	super();
-//}
-//
-//public Creneaux(Date date, int tempsCreneau, Adresse adresse) {
-//	super();
-//	this.date = date;
-//	this.tempsCreneau = tempsCreneau;
+package monRdv.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Creneaux {
+	
+private Date date;
+private int tempsCreneau;
+private Adresse adresse; 
+
+@Id
+@GeneratedValue
+private Long id;
+@ManyToOne
+@JoinColumn(name="rdv_creneaux")
+private Rdv rdv; 
+
+
+public Creneaux() {
+	super();
+}
+
+public Creneaux(Date date, int tempsCreneau, Adresse adresse) {
+	super();
+	this.date = date;
+	this.tempsCreneau = tempsCreneau;
 //	this.adresse = adresse;
-//}
-//
-//public Date getDate() {
-//	return date;
-//}
-//
-//public void setDate(Date date) {
-//	this.date = date;
-//}
-//
-//public int getTempsCreneau() {
-//	return tempsCreneau;
-//}
-//
-//public void setTempsCreneau(int tempsCreneau) {
-//	this.tempsCreneau = tempsCreneau;
-//}
-//
+}
+
+public Date getDate() {
+	return date;
+}
+
+public void setDate(Date date) {
+	this.date = date;
+}
+
+public int getTempsCreneau() {
+	return tempsCreneau;
+}
+
+public void setTempsCreneau(int tempsCreneau) {
+	this.tempsCreneau = tempsCreneau;
+}
+
 //public Adresse getAdresse() {
 //	return adresse;
 //}
@@ -47,12 +58,22 @@
 //	this.adresse = adresse;
 //}
 //
-//public RDV getRdv() {
-//	return rdv;
-//}
-//
-//public void setRdv(RDV rdv) {
-//	this.rdv = rdv;
-//}
-//
-//}
+
+
+public Rdv getRdv() {
+	return rdv;
+}
+
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
+public void setRdv(Rdv rdv) {
+	this.rdv = rdv;
+}
+
+}

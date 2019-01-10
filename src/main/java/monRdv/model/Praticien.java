@@ -44,8 +44,13 @@ public class Praticien {
 	private List<PraticienMotif> motifs;
 	// private Utilisateur utilisateur;
 	// private List<Creneaux> creneaux;
-	// private List<RDV> rdvs;
+
 	// private List<PraticienAdresse> adresses;
+
+	@OneToMany(mappedBy="praticien")
+	 private List<Rdv> rdvs= new ArrayList<>();
+//	 private List<Adresse> adresses;
+
 
 	public Praticien() {
 		super();
