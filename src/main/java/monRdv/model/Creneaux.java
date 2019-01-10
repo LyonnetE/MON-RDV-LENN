@@ -10,70 +10,62 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Creneaux {
-	
-private Date date;
-private int tempsCreneau;
-private Adresse adresse; 
 
-@Id
-@GeneratedValue
-private Long id;
-@ManyToOne
-@JoinColumn(name="rdv_creneaux")
-private Rdv rdv; 
+	private Date date;
+	private int tempsCreneau;
 
+	@Id
+	@GeneratedValue
+	private Long id;
+	@ManyToOne
+	@JoinColumn(name = "rdv_creneaux")
+	private Rdv rdv;
 
-public Creneaux() {
-	super();
-}
+	@ManyToOne
+	@JoinColumn(name = "Praticien")
+	private Praticien praticien;
 
-public Creneaux(Date date, int tempsCreneau, Adresse adresse) {
-	super();
-	this.date = date;
-	this.tempsCreneau = tempsCreneau;
-//	this.adresse = adresse;
-}
+	public Creneaux() {
+		super();
+	}
 
-public Date getDate() {
-	return date;
-}
+	public Creneaux(Date date, int tempsCreneau) {
+		super();
+		this.date = date;
+		this.tempsCreneau = tempsCreneau;
 
-public void setDate(Date date) {
-	this.date = date;
-}
+	}
 
-public int getTempsCreneau() {
-	return tempsCreneau;
-}
+	public Date getDate() {
+		return date;
+	}
 
-public void setTempsCreneau(int tempsCreneau) {
-	this.tempsCreneau = tempsCreneau;
-}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-//public Adresse getAdresse() {
-//	return adresse;
-//}
-//
-//public void setAdresse(Adresse adresse) {
-//	this.adresse = adresse;
-//}
-//
+	public int getTempsCreneau() {
+		return tempsCreneau;
+	}
 
+	public void setTempsCreneau(int tempsCreneau) {
+		this.tempsCreneau = tempsCreneau;
+	}
 
-public Rdv getRdv() {
-	return rdv;
-}
+	public Rdv getRdv() {
+		return rdv;
+	}
 
-public Long getId() {
-	return id;
-}
+	public Long getId() {
+		return id;
+	}
 
-public void setId(Long id) {
-	this.id = id;
-}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-public void setRdv(Rdv rdv) {
-	this.rdv = rdv;
-}
+	public void setRdv(Rdv rdv) {
+
+	}
 
 }

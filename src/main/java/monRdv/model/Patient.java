@@ -1,10 +1,8 @@
 package monRdv.model;
 
-
 import java.util.Date;
 
 import javax.persistence.Column;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,27 +12,25 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-//import formation.model.Adresse;
-
 @Entity
-@Table(name="patient")
+@Table(name = "patient")
 public class Patient {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(name="nom")
+	@Column(name = "nom")
 	private String nom;
-	@Column(name="prenom")
+	@Column(name = "prenom")
 	private String prenom;
-	@Column(name="telephone")
+	@Column(name = "telephone")
 	private String telephone;
 	@Temporal(TemporalType.DATE)
 	private Date dtNaissance;
 	private boolean principal;
 	@OneToOne
-	@JoinColumn(name="adresse_id")
+	@JoinColumn(name = "adresse_id")
 	private Adresse adresse;
-	
+
 	public Patient() {
 		super();
 	}
@@ -105,6 +101,3 @@ public class Patient {
 		this.adresse = adresse;
 	}
 }
-	
-
-	

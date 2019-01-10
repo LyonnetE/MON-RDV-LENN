@@ -16,10 +16,10 @@ public class Specialite {
 	@Id
 	@GeneratedValue
 	private Long id;
+
 	@Column(name = "nom")
 	private String nom;
 
-	@Column(name = "praticien")
 	@OneToMany(mappedBy = "specialite")
 	private List<PraticienSpecialite> praticiens = new ArrayList<>();
 
@@ -30,6 +30,14 @@ public class Specialite {
 
 	public Specialite() {
 		super();
+	}
+
+	public List<PraticienSpecialite> getPraticiens() {
+		return praticiens;
+	}
+
+	public void setPraticiens(List<PraticienSpecialite> praticiens) {
+		this.praticiens = praticiens;
 	}
 
 	public Long getId() {

@@ -8,8 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Praticien_Specialite")
-public class PraticienSpecialite {
+@Table(name = "Praticien_Adresse")
+public class PraticienAdresse {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -17,8 +17,18 @@ public class PraticienSpecialite {
 	@JoinColumn(name = "id_praticien")
 	private Praticien praticien;
 	@ManyToOne
-	@JoinColumn(name = "id_specialite")
-	private Specialite specialite;
+	@JoinColumn(name = "id_adresse")
+	private Adresse adresse;
+
+	public PraticienAdresse() {
+		super();
+	}
+
+	public PraticienAdresse(Praticien praticien, Adresse adresse) {
+		super();
+		this.praticien = praticien;
+		this.adresse = adresse;
+	}
 
 	public Long getId() {
 		return id;
@@ -26,16 +36,6 @@ public class PraticienSpecialite {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public PraticienSpecialite() {
-		super();
-	}
-
-	public PraticienSpecialite(Praticien praticien, Specialite specialite) {
-		super();
-		this.praticien = praticien;
-		this.specialite = specialite;
 	}
 
 	public Praticien getPraticien() {
@@ -46,12 +46,12 @@ public class PraticienSpecialite {
 		this.praticien = praticien;
 	}
 
-	public Specialite getSpecialite() {
-		return specialite;
+	public Adresse getAdresse() {
+		return adresse;
 	}
 
-	public void setSpecialite(Specialite specialite) {
-		this.specialite = specialite;
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 }

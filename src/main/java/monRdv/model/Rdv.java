@@ -3,7 +3,6 @@ package monRdv.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,31 +13,27 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Rdv")
+@Table(name = "Rdv")
 public class Rdv {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@Column(name="motif")
-	@OneToOne(mappedBy="rdv")
+
+	@OneToOne(mappedBy = "rdv")
 	private Motif motif;
-	
-	@Column(name="creneaux")
-	@OneToMany(mappedBy="rdv")
-	private List<Creneaux> creneaux=new ArrayList<>();
-	
-	@Column(name="patient")
+
+	@OneToMany(mappedBy = "rdv")
+	private List<Creneaux> creneaux = new ArrayList<>();
+
 	@ManyToOne
-	@JoinColumn(name="patient_id")
+	@JoinColumn(name = "patient_id")
 	private Utilisateur patient;
-	
-	@Column(name="praticien")
+
 	@ManyToOne
-	@JoinColumn(name="praticien_id")
+	@JoinColumn(name = "praticien_id")
 	private Praticien praticien;
-	
+
 	public Rdv() {
 		super();
 	}
@@ -81,6 +76,6 @@ public class Rdv {
 
 	public void setPraticien(Praticien praticien) {
 		this.praticien = praticien;
-	}	
+	}
 
 }

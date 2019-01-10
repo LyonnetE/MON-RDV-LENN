@@ -36,24 +36,39 @@ public class Praticien {
 	private boolean cheque;
 	@Column(name = "espece")
 	private boolean espece;
-	@Column(name = "specialites")
+
 	@OneToMany(mappedBy = "praticien")
 	private List<PraticienSpecialite> specialites = new ArrayList<>();
-	@Column(name = "motifs")
+
 	@OneToMany(mappedBy = "praticien")
-	private List<PraticienMotif> motifs;
-	// private Utilisateur utilisateur;
-	// private List<Creneaux> creneaux;
+	private List<Creneaux> creneaux;
+	@OneToMany(mappedBy = "praticien")
+	private List<Rdv> rdvs = new ArrayList<>();
 
-	// private List<PraticienAdresse> adresses;
+	@OneToMany(mappedBy = "praticien")
+	private List<PraticienMotif> motifs = new ArrayList<>();
 
-	@OneToMany(mappedBy="praticien")
-	 private List<Rdv> rdvs= new ArrayList<>();
-//	 private List<Adresse> adresses;
-
+	@OneToMany(mappedBy = "praticien")
+	private List<PraticienAdresse> adresses = new ArrayList<>();
 
 	public Praticien() {
 		super();
+	}
+
+	public List<PraticienMotif> getMotifs() {
+		return motifs;
+	}
+
+	public void setMotifs(List<PraticienMotif> motifs) {
+		this.motifs = motifs;
+	}
+
+	public List<PraticienAdresse> getAdresses() {
+		return adresses;
+	}
+
+	public void setAdresses(List<PraticienAdresse> adresses) {
+		this.adresses = adresses;
 	}
 
 	public Praticien(String nom, String prenom, List<PraticienSpecialite> specialites) {
