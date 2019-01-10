@@ -27,10 +27,10 @@ public class Utilisateur {
 	@Column(name="typeUtilisateur")
 	@Enumerated(EnumType.STRING)
 	private TypeUtilisateur typeUtilisateur;
-	
-	@OneToOne
-	private Patient patient;
-	
+
+	@OneToMany(mappedBy="utilisateur")
+	private List<Patient> patient;
+
 	@OneToOne
 	private Praticien praticien;
 	@OneToMany (mappedBy="patient")
@@ -72,13 +72,15 @@ public class Utilisateur {
 		this.typeUtilisateur = typeUtilisateur;
 	}
 
-	public Patient getPatient() {
+	
+	public List<Patient> getPatient() {
 		return patient;
 	}
-
-	public void setPatient(Patient patient) {
+	
+	public void setPatient(List<Patient> patient) {
 		this.patient = patient;
 	}
+	
 
 	public Praticien getPraticien() {
 		return praticien;
@@ -103,6 +105,8 @@ public class Utilisateur {
 	public void removeRdv(Rdv rdv) {
 		this.rdv.remove(rdv);
 	}
+
+	
 	
 
 }
