@@ -78,4 +78,12 @@ public class Rdv {
 		this.praticien = praticien;
 	}
 
+	public void addCreneaux(Creneaux creneaux) {
+		this.creneaux.add(creneaux);
+	}
+
+	public void removeCreneaux(Creneaux creneaux) {
+		this.creneaux.remove(creneaux);
+	}
+
 }
