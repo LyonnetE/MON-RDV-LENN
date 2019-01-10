@@ -1,3 +1,9 @@
 /target/
 
 src/test/java/monRdv/test/TestMonRdv\.java
+
+src/main/java/monRdv/model/Creneaux\.java
+
+src/main/java/monRdv/model/Patient\.java
+
+src/main/java/monRdv/model/Utilisateur\.java
