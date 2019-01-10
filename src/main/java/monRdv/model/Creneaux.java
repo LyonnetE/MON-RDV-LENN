@@ -10,70 +10,75 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Creneaux {
-	
-private Date date;
-private int tempsCreneau;
-private Adresse adresse; 
 
-@Id
-@GeneratedValue
-private Long id;
-@ManyToOne
-@JoinColumn(name="rdv_creneaux")
-private Rdv rdv; 
+	private Date date;
+	private int tempsCreneau;
+	private Adresse adresse;
 
+	@Id
+	@GeneratedValue
+	private Long id;
+	@ManyToOne
+	@JoinColumn(name = "rdv_creneaux")
+	private Rdv rdv;
 
-public Creneaux() {
-	super();
-}
+	@ManyToOne
+	@JoinColumn(name = "Praticien")
+	private Praticien praticien;
 
-public Creneaux(Date date, int tempsCreneau, Adresse adresse) {
-	super();
-	this.date = date;
-	this.tempsCreneau = tempsCreneau;
-//	this.adresse = adresse;
-}
+	public Creneaux() {
+		super();
+	}
 
-public Date getDate() {
-	return date;
-}
+	public Creneaux(Date date, int tempsCreneau, Adresse adresse) {
+		super();
+		this.date = date;
+		this.tempsCreneau = tempsCreneau;
 
-public void setDate(Date date) {
-	this.date = date;
-}
+		// this.adresse = adresse;
 
-public int getTempsCreneau() {
-	return tempsCreneau;
-}
+		this.adresse = adresse;
 
-public void setTempsCreneau(int tempsCreneau) {
-	this.tempsCreneau = tempsCreneau;
-}
+	}
 
-//public Adresse getAdresse() {
-//	return adresse;
-//}
-//
-//public void setAdresse(Adresse adresse) {
-//	this.adresse = adresse;
-//}
-//
+	public Date getDate() {
+		return date;
+	}
 
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-public Rdv getRdv() {
-	return rdv;
-}
+	public int getTempsCreneau() {
+		return tempsCreneau;
+	}
 
-public Long getId() {
-	return id;
-}
+	public void setTempsCreneau(int tempsCreneau) {
+		this.tempsCreneau = tempsCreneau;
+	}
 
-public void setId(Long id) {
-	this.id = id;
-}
+	public Rdv getRdv() {
+		return rdv;
+	}
 
-public void setRdv(Rdv rdv) {
-	this.rdv = rdv;
-}
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setRdv(Rdv rdv) {
+
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 }

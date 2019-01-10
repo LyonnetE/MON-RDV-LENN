@@ -23,6 +23,7 @@ public class PraticienMotif {
 	@JoinColumn(name = "id_motif")
 	private Motif motif;
 
+
 	public PraticienMotif() {
 		super();
 	}
@@ -31,6 +32,14 @@ public class PraticienMotif {
 		super();
 		this.praticien = praticien;
 		this.motif = motif;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Praticien getPraticien() {
@@ -48,5 +57,6 @@ public class PraticienMotif {
 	public void setMotif(Motif motif) {
 		this.motif = motif;
 	}
+
 
 }
