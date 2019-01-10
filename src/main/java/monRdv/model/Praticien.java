@@ -39,16 +39,17 @@ public class Praticien {
 	@Column(name = "specialites")
 	@OneToMany(mappedBy = "praticien")
 	private List<PraticienSpecialite> specialites = new ArrayList<>();
-	@Column(name = "motifs")
-	@OneToMany(mappedBy = "praticien")
-	private List<PraticienMotif> motifs;
-	// private Utilisateur utilisateur;
-	// private List<Creneaux> creneaux;
-
-	// private List<PraticienAdresse> adresses;
-
+	@Column(name="creneaux")
 	@OneToMany(mappedBy="praticien")
-	 private List<Rdv> rdvs= new ArrayList<>();
+	private List<Creneaux> creneaux;
+	@OneToMany(mappedBy="praticien")
+	private List<Rdv> rdvs= new ArrayList<>();
+
+// private Utilisateur utilisateur;
+// private List<Creneaux> creneaux;
+// private List<PraticienAdresse> adresses;
+// private List<Motif> motifs;
+// private List<Adresse> adresses;
 //	 private List<Adresse> adresses;
 
 

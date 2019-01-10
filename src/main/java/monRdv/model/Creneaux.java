@@ -2,6 +2,7 @@ package monRdv.model;
 
 import java.util.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,6 +23,11 @@ private Long id;
 @JoinColumn(name="rdv_creneaux")
 private Rdv rdv; 
 
+@ManyToOne
+@JoinColumn(name="Praticien")
+private Praticien praticien;
+
+
 
 public Creneaux() {
 	super();
@@ -31,7 +37,11 @@ public Creneaux(Date date, int tempsCreneau, Adresse adresse) {
 	super();
 	this.date = date;
 	this.tempsCreneau = tempsCreneau;
+
 //	this.adresse = adresse;
+
+	this.adresse = adresse;
+
 }
 
 public Date getDate() {
@@ -50,16 +60,6 @@ public void setTempsCreneau(int tempsCreneau) {
 	this.tempsCreneau = tempsCreneau;
 }
 
-//public Adresse getAdresse() {
-//	return adresse;
-//}
-//
-//public void setAdresse(Adresse adresse) {
-//	this.adresse = adresse;
-//}
-//
-
-
 public Rdv getRdv() {
 	return rdv;
 }
@@ -73,7 +73,17 @@ public void setId(Long id) {
 }
 
 public void setRdv(Rdv rdv) {
-	this.rdv = rdv;
+	
 }
+
+public Adresse getAdresse() {
+	return adresse;
+}
+
+public void setAdresse(Adresse adresse) {
+	this.adresse = adresse;
+}
+
+
 
 }
