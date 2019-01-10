@@ -1,4 +1,4 @@
-package monRdv.daojpa;
+package monRdv.dao.jpa;
 
 public class daoPraticienjpa {
 
