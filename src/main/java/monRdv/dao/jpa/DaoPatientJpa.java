@@ -6,35 +6,25 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-
 import monRdv.Application;
-<<<<<<< HEAD
-import monRdv.dao.IDaoUtilisateur;
-import monRdv.model.Creneaux;
-import monRdv.model.Motif;
-import monRdv.model.Praticien;
-import monRdv.model.Rdv;
-import monRdv.model.TypeUtilisateur;
-=======
-import monRdv.dao.IDaoUtilisateur;
->>>>>>> master
-import monRdv.model.Utilisateur;
+import monRdv.dao.IDaoPatient;
+import monRdv.model.Adresse;
+import monRdv.model.Patient;
 
-public class daoUtilisateurJpa implements IDaoUtilisateur {
+public class DaoPatientJpa implements IDaoPatient {
 
 	@Override
-	public List<Utilisateur> findAll() {
+	public List<Patient> findAll() {
+		List<Patient> liste = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
-
-		List<Utilisateur> liste = null;
-
 		try {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
-
 			tx.begin();
-			TypedQuery<Utilisateur> query = em.createQuery("from Utilisateur", Utilisateur.class);
+
+			TypedQuery<Patient> query = em.createQuery("from Patient", Patient.class);
+
 			liste = query.getResultList();
 
 			tx.commit();
@@ -48,22 +38,23 @@ public class daoUtilisateurJpa implements IDaoUtilisateur {
 				em.close();
 			}
 		}
+
 		return liste;
+	
 	}
 
 	@Override
-	public Utilisateur find(Long id) {
+	public Patient find(Long id) {
+		Patient obj = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
-
-		Utilisateur obj = null;
 
 		try {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
-
 			tx.begin();
-			obj =em.find(Utilisateur.class,id);
+
+			obj = em.find(Patient.class, id);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -76,20 +67,22 @@ public class daoUtilisateurJpa implements IDaoUtilisateur {
 				em.close();
 			}
 		}
+
 		return obj;
+	
 	}
 
 	@Override
-	public Utilisateur save(Utilisateur obj) {
+	public Patient save(Patient obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
 		try {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
-
 			tx.begin();
-			obj =em.merge(obj);
+
+			obj = em.merge(obj);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -102,11 +95,13 @@ public class daoUtilisateurJpa implements IDaoUtilisateur {
 				em.close();
 			}
 		}
+
 		return obj;
+		
 	}
 
 	@Override
-	public void delete(Utilisateur obj) {
+	public void delete(Patient obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -114,9 +109,9 @@ public class daoUtilisateurJpa implements IDaoUtilisateur {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
-			
+
 			em.remove(em.merge(obj));
-			
+
 			tx.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -128,6 +123,8 @@ public class daoUtilisateurJpa implements IDaoUtilisateur {
 				em.close();
 			}
 		}
+		
 	}
 
+	
 }
