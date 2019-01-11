@@ -6,26 +6,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-
 import monRdv.Application;
-import monRdv.dao.IDaoRdv;
-import monRdv.model.Rdv;
+import monRdv.dao.IDaoPraticienMotif;
+import monRdv.model.PraticienMotif;
 
-public class daoRdvJpa implements IDaoRdv {
-
+public class DaoPraticienMotifJpa implements IDaoPraticienMotif {
+	
 	@Override
-	public List<Rdv> findAll() {
+	public List<PraticienMotif> findAll() {
+		List<PraticienMotif> liste = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
-
-		List<Rdv> liste = null;
-
 		try {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
-
 			tx.begin();
-			TypedQuery<Rdv> query = em.createQuery("from Rdv", Rdv.class);
+
+			TypedQuery<PraticienMotif> query = em.createQuery("from PraticienMotif", PraticienMotif.class);
+
 			liste = query.getResultList();
 
 			tx.commit();
@@ -39,23 +37,22 @@ public class daoRdvJpa implements IDaoRdv {
 				em.close();
 			}
 		}
+
 		return liste;
 	}
 
 	@Override
-	public Rdv find(Long id) {
+	public PraticienMotif find(Long id) {
+		PraticienMotif obj = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
-
-		Rdv obj = null;
 
 		try {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
-
 			tx.begin();
-			
-			obj =em.find(Rdv.class,id);
+
+			obj = em.find(PraticienMotif.class, id);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -68,21 +65,21 @@ public class daoRdvJpa implements IDaoRdv {
 				em.close();
 			}
 		}
+
 		return obj;
 	}
 
 	@Override
-	public Rdv save(Rdv obj) {
+	public PraticienMotif save(PraticienMotif obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
 		try {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
-
 			tx.begin();
-			
-			obj =em.merge(obj);
+
+			obj = em.merge(obj);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -95,11 +92,12 @@ public class daoRdvJpa implements IDaoRdv {
 				em.close();
 			}
 		}
+
 		return obj;
 	}
 
 	@Override
-	public void delete(Rdv obj) {
+	public void delete(PraticienMotif obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -107,9 +105,9 @@ public class daoRdvJpa implements IDaoRdv {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
-			
+
 			em.remove(em.merge(obj));
-			
+
 			tx.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -122,5 +120,5 @@ public class daoRdvJpa implements IDaoRdv {
 			}
 		}
 	}
-	
+
 }
