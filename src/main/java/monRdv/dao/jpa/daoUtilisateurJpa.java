@@ -6,8 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+
 import monRdv.Application;
 import monRdv.dao.IDaoUtilisateur;
+import monRdv.model.Creneaux;
+import monRdv.model.Motif;
+import monRdv.model.Praticien;
+import monRdv.model.Rdv;
+import monRdv.model.TypeUtilisateur;
 import monRdv.model.Utilisateur;
 
 public class daoUtilisateurJpa implements IDaoUtilisateur {
