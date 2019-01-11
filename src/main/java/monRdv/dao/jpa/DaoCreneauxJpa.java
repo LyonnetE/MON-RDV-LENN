@@ -7,13 +7,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import monRdv.Application;
-import monRdv.dao.IDaoPraticien;
-import monRdv.model.Praticien;
+import monRdv.dao.IDaoCreneaux;
+import monRdv.model.Creneaux;
 
-public class DaoPraticienjpa implements IDaoPraticien {
+public class DaoCreneauxJpa implements IDaoCreneaux {
+	
 	@Override
-	public List<Praticien> findAll() {
-		List<Praticien> liste = null;
+	public List<Creneaux> findAll() {
+		List<Creneaux> liste = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
 		try {
@@ -21,7 +22,7 @@ public class DaoPraticienjpa implements IDaoPraticien {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Praticien> query = em.createQuery("from Formation", Praticien.class);
+			TypedQuery<Creneaux> query = em.createQuery("from Creneaux", Creneaux.class);
 
 			liste = query.getResultList();
 
@@ -41,8 +42,8 @@ public class DaoPraticienjpa implements IDaoPraticien {
 	}
 
 	@Override
-	public Praticien find(Long id) {
-		Praticien obj = null;
+	public Creneaux find(Long id) {
+		Creneaux obj = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -51,7 +52,7 @@ public class DaoPraticienjpa implements IDaoPraticien {
 			tx = em.getTransaction();
 			tx.begin();
 
-			obj = em.find(Praticien.class, id);
+			obj = em.find(Creneaux.class, id);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -69,7 +70,7 @@ public class DaoPraticienjpa implements IDaoPraticien {
 	}
 
 	@Override
-	public Praticien save(Praticien obj) {
+	public Creneaux save(Creneaux obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -96,7 +97,7 @@ public class DaoPraticienjpa implements IDaoPraticien {
 	}
 
 	@Override
-	public void delete(Praticien obj) {
+	public void delete(Creneaux obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -119,4 +120,7 @@ public class DaoPraticienjpa implements IDaoPraticien {
 			}
 		}
 	}
+	
+	
+
 }

@@ -5,11 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-
 <<<<<<< HEAD
+
 import monRdv.Application;
 =======
-import formation.Application;
+
+
+import monRdv.Application;
 >>>>>>> master
 import monRdv.dao.IDaoRdv;
 import monRdv.model.Rdv;
