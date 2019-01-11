@@ -8,16 +8,8 @@ import javax.persistence.TypedQuery;
 
 
 import monRdv.Application;
-<<<<<<< HEAD
+
 import monRdv.dao.IDaoUtilisateur;
-import monRdv.model.Creneaux;
-import monRdv.model.Motif;
-import monRdv.model.Praticien;
-import monRdv.model.Rdv;
-import monRdv.model.TypeUtilisateur;
-=======
-import monRdv.dao.IDaoUtilisateur;
->>>>>>> master
 import monRdv.model.Utilisateur;
 
 public class daoUtilisateurJpa implements IDaoUtilisateur {

@@ -1,10 +1,8 @@
 package monRdv.test;
 
-<<<<<<< HEAD
 import monRdv.Application;
-=======
-import formation.Application;
->>>>>>> master
+
+import monRdv.Application;
 import monRdv.dao.IDaoRdv;
 import monRdv.dao.IDaoUtilisateur;
 import monRdv.model.Rdv;
