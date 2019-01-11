@@ -165,5 +165,13 @@ public class Praticien {
 	public void setSpecialites(List<PraticienSpecialite> specialites) {
 		this.specialites = specialites;
 	}
+	
+	public void addRdv(Rdv rdv) {
+		this.rdvs.add(rdv);
+	}
+	
+	public void removeRdv(Rdv rdv) {
+		this.rdvs.remove(rdv);
+	}
 
 }
