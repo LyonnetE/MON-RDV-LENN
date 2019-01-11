@@ -3,6 +3,9 @@ package monRdv;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import monRdv.dao.IDaoPraticien;
+import monRdv.dao.jpa.DaoPraticienjpa;
+
 import monRdv.dao.IDaoCreneaux;
 import monRdv.dao.IDaoMotif;
 import monRdv.dao.IDaoPraticien;
@@ -16,23 +19,36 @@ import monRdv.dao.jpa.DaoPraticienAdresseJpa;
 import monRdv.dao.jpa.DaoPraticienMotifJpa;
 import monRdv.dao.jpa.daoRdvJpa;
 
+
 public class Application {
 
 	private static Application instance = null;
 
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("monRdv");
+<<<<<<< Updated upstream
+
+	private final IDaoPraticien daoPraticien = new DaoPraticienjpa();
+
 	private final IdaoAdresse daoAdresse=new DaoAdresseJpa();
 	private final IdaoPatient daoPatient=new DaoPatientJpa();
 	private final IdaoPraticienSpecialite daoPraticienSpecialite=new DaoPraticienSpecialiteJpa();
 	private final IdaoSpecialite daoSpecialite= new Specialite();
+=======
+	private final IdaoAdresse daoAdresse = new DaoAdresseJpa();
+	private final IdaoPatient daoPatient = new DaoPatientJpa();
+	private final IdaoPraticienSpecialite daoPraticienSpecialite = new DaoPraticienSpecialiteJpa();
+	private final IdaoSpecialite daoSpecialite = new Specialite();
+>>>>>>> Stashed changes
 	private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
 	private final IDaoCreneaux daoCreneaux = new DaoCreneauxJpa();
 	private final IDaoMotif daoMotif = new DaoMotifJpa();
 	private final IDaoPraticienAdresse daoPraticienAdresse = new DaoPraticienAdresseJpa();
 	private final IDaoPraticienMotif daoPraticienMotif = new DaoPraticienMotifJpa();
-	private final IDaoRdv daoRdv=new daoRdvJpa(); 
+	private final IDaoRdv daoRdv = new daoRdvJpa();
+
 	private final IDaoUtilisateur=new daoUtilisateurJpa();
 	
+
 
 	private Application() {
 	}
@@ -52,6 +68,7 @@ public class Application {
 	public IDaoPraticien getDaoPraticien() {
 		return daoPraticien;
 	}
+
 
 	public IDaoCreneaux getDaoCreneaux() {
 		return daoCreneaux;
@@ -88,6 +105,6 @@ public class Application {
 	public IdaoSpecialite getDaoSpecialite() {
 		return daoSpecialite;
 	}
-	
+
 
 }
