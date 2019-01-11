@@ -3,10 +3,9 @@ package monRdv;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-<<<<<<< HEAD
 import monRdv.dao.IDaoPraticien;
 import monRdv.dao.jpa.DaoPraticienjpa;
-=======
+
 import monRdv.dao.IDaoCreneaux;
 import monRdv.dao.IDaoMotif;
 import monRdv.dao.IDaoPraticien;
@@ -19,16 +18,16 @@ import monRdv.dao.jpa.DaoMotifJpa;
 import monRdv.dao.jpa.DaoPraticienAdresseJpa;
 import monRdv.dao.jpa.DaoPraticienMotifJpa;
 import monRdv.dao.jpa.daoRdvJpa;
->>>>>>> master
+
 
 public class Application {
 
 	private static Application instance = null;
 
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("monRdv");
-<<<<<<< HEAD
+
 	private final IDaoPraticien daoPraticien = new DaoPraticienjpa();
-=======
+
 	private final IdaoAdresse daoAdresse=new DaoAdresseJpa();
 	private final IdaoPatient daoPatient=new DaoPatientJpa();
 	private final IdaoPraticienSpecialite daoPraticienSpecialite=new DaoPraticienSpecialiteJpa();
@@ -41,7 +40,7 @@ public class Application {
 	private final IDaoRdv daoRdv=new daoRdvJpa(); 
 	private final IDaoUtilisateur=new daoUtilisateurJpa();
 	
->>>>>>> master
+
 
 	private Application() {
 	}
@@ -62,8 +61,7 @@ public class Application {
 		return daoPraticien;
 	}
 
-<<<<<<< HEAD
-=======
+
 	public IDaoCreneaux getDaoCreneaux() {
 		return daoCreneaux;
 	}
@@ -101,5 +99,5 @@ public class Application {
 	}
 	
 
->>>>>>> master
+
 }
